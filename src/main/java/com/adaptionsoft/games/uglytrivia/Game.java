@@ -18,16 +18,20 @@ public class Game {
     private int currentPlayer = 0;
     private boolean isGettingOutOfPenaltyBox;
 
-    public  Game(){
-    	for (int i = 0; i < 50; i++) {
-			popQuestions.addLast(createPopQuestion(i));
-			scienceQuestions.addLast((createScienceQuestion(i)));
-			sportsQuestions.addLast((createSportsQuestion(i)));
-			rockQuestions.addLast(createRockQuestion(i));
-    	}
+    public Game(){
+        setupQuestions();
     }
 
-	private String createRockQuestion(int index){
+    private void setupQuestions() {
+        for (int i = 0; i < 50; i++) {
+            popQuestions.addLast(createPopQuestion(i));
+            scienceQuestions.addLast((createScienceQuestion(i)));
+            sportsQuestions.addLast((createSportsQuestion(i)));
+            rockQuestions.addLast(createRockQuestion(i));
+        }
+    }
+
+    private String createRockQuestion(int index){
 		return "Rock Question " + index;
 	}
 
