@@ -5,30 +5,42 @@ import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class Game {
-    ArrayList players = new ArrayList();
-    int[] places = new int[6];
-    int[] purses  = new int[6];
-    boolean[] inPenaltyBox  = new boolean[6];
+    private ArrayList<String> players = new ArrayList<>();
+    private int[] places = new int[6];
+    private int[] purses  = new int[6];
+    private boolean[] inPenaltyBox  = new boolean[6];
 
-    LinkedList popQuestions = new LinkedList();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
+    private LinkedList<String> popQuestions = new LinkedList<>();
+    private LinkedList<String> scienceQuestions = new LinkedList<>();
+    private LinkedList<String> sportsQuestions = new LinkedList<>();
+    private LinkedList<String> rockQuestions = new LinkedList<>();
 
-    int currentPlayer = 0;
-    boolean isGettingOutOfPenaltyBox;
+    private int currentPlayer = 0;
+    private boolean isGettingOutOfPenaltyBox;
 
     public  Game(){
     	for (int i = 0; i < 50; i++) {
-			popQuestions.addLast("Pop Question " + i);
-			scienceQuestions.addLast(("Science Question " + i));
-			sportsQuestions.addLast(("Sports Question " + i));
+			popQuestions.addLast(createPopQuestion(i));
+			scienceQuestions.addLast((createScienceQuestion(i)));
+			sportsQuestions.addLast((createSportsQuestion(i)));
 			rockQuestions.addLast(createRockQuestion(i));
     	}
     }
 
-	public String createRockQuestion(int index){
+	private String createRockQuestion(int index){
 		return "Rock Question " + index;
+	}
+
+	private String createSportsQuestion(int index){
+		return "Sports Question " + index;
+	}
+
+	private String createScienceQuestion(int index){
+		return "Science Question " + index;
+	}
+
+	private String createPopQuestion(int index){
+		return "Pop Question " + index;
 	}
 
 	public boolean isPlayable() {
@@ -48,7 +60,7 @@ public class Game {
 		return true;
 	}
 
-	public int numberOfPlayers() {
+	private int numberOfPlayers() {
 		return players.size();
 	}
 
