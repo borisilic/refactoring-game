@@ -102,32 +102,35 @@ public class Game {
 		System.out.println(players.get(currentPlayer)
 				+ "'s new location is "
 				+ places[currentPlayer]);
-		System.out.println("The category is " + currentCategory());
-		askQuestion();
+		System.out.println("The category is " + currentCategory(places[currentPlayer]));
+		askQuestion(places[currentPlayer]);
 	}
 
-	private void askQuestion() {
-		if (currentCategory().equals("Pop"))
+	private void askQuestion(int boardPosition) {
+		if (currentCategory(boardPosition).equals("Pop"))
 			System.out.println(popQuestions.removeFirst());
-		if (currentCategory().equals("Science"))
+
+		if (currentCategory(boardPosition).equals("Science"))
 			System.out.println(scienceQuestions.removeFirst());
-		if (currentCategory().equals("Sports"))
+
+		if (currentCategory(boardPosition).equals("Sports"))
 			System.out.println(sportsQuestions.removeFirst());
-		if (currentCategory().equals("Rock"))
+
+		if (currentCategory(boardPosition).equals("Rock"))
 			System.out.println(rockQuestions.removeFirst());
 	}
 
 
-	private String currentCategory() {
-		if (IntStream.of(0, 4, 8).anyMatch(x -> x == places[currentPlayer])) {
+	private String currentCategory(int boardPosition) {
+		if (IntStream.of(0, 4, 8).anyMatch(x -> x == boardPosition)) {
 		    return "Pop";
         }
 
-		if (IntStream.of(1, 5, 9).anyMatch(x -> x == places[currentPlayer])) {
+		if (IntStream.of(1, 5, 9).anyMatch(x -> x == boardPosition)) {
 		    return "Science";
         }
 
-		if (IntStream.of(2, 6, 10).anyMatch(x -> x == places[currentPlayer])) {
+		if (IntStream.of(2, 6, 10).anyMatch(x -> x == boardPosition)) {
 		    return "Sports";
         }
 		return "Rock";
