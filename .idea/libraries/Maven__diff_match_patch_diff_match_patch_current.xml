@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: diff_match_patch:diff_match_patch:current">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/diff_match_patch/diff_match_patch/current/diff_match_patch-current.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/diff_match_patch/diff_match_patch/current/diff_match_patch-current-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/diff_match_patch/diff_match_patch/current/diff_match_patch-current-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
